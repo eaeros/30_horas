@@ -1,25 +1,28 @@
 package com.ernesto;
 
-import com.ernesto.tren;
-
 public class Main {
+    // la variable de instancia nombre puede ser vista por todos los hijos de la clase
+    public String nombre;
 
-    public static void main(String[] args) {
-        // write your code here
-        tren primero = new tren();
-        tren segundo = new tren("ernesto torres", 32);
-        Lujo tercero = new Lujo("felipe", true);
-        Lujo cuarto = new Lujo ();
-        System.out.println(primero.maquinista);
-        System.out.println(primero.antiguedad);
-        System.out.println(segundo.antiguedad);
-        primero.CompletarVagon(2);
-        System.out.println(primero.vagones[2][1]);
-        System.out.println(tercero.maquinista);
-        System.out.println(tercero.camarero);
-        System.out.println(cuarto.camarero);
-        System.out.println(cuarto.antiguedad);
+    // peso es una variable solo visible por la clase Persona
+    private double peso;
+    // La variable nombre es asignada en el constructor
+    public Main(String nombre) {
+        this.nombre = nombre;
+    }
+    // Este método asigna un peso a la variable peso
+    public void setPeso(double peso){
+        this.peso = peso;
+    }
+    // Este metodo imprime los datos de la persona
+    public void imprimirPersona() {
+        System.out.println("Nombre : " + this.nombre );
+        System.out.println("Peso :" + this.peso);
     }
 
+    public static void main(String args[]){
+        Main alguien = new Main("Carlos");
+        alguien.setPeso(80);
+        alguien.imprimirPersona();
+    }
 }
-
